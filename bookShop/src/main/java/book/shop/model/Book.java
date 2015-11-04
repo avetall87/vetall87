@@ -4,24 +4,24 @@ package book.shop.model;
  * Created by виталий on 01.11.2015.
  */
 public class Book {
-    private long isbn;
-    private Author autor;
+    private int isbn;
+    private int autorId;
     private String name;
 
     public long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
 
-    public Author getAutor() {
-        return autor;
+    public long getAutor() {
+        return autorId;
     }
 
-    public void setAutor(Author autor) {
-        this.autor = autor;
+    public void setAutor(int autorId) {
+        this.autorId = autorId;
     }
 
     public String getName() {
@@ -35,12 +35,12 @@ public class Book {
     /**
      * Default constructor
      * @param isbn new isbn
-     * @param autor author who write this book
+     * @param autorId author who write this book
      * @param name name of book
      */
-    public Book(long isbn, Author autor, String name) {
+    public Book(int isbn, int autorId, String name) {
         this.isbn = isbn;
-        this.autor = autor;
+        this.autorId = autorId;
         this.name = name;
     }
 }

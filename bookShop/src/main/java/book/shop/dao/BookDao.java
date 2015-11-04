@@ -16,7 +16,7 @@ public interface BookDao {
 
     public void deleteBook (long isbn);
 
-    public Book getBookByIsbn (long isbn);
+    public Book getBookByIsbn (int isbn);
 
     public List<Book> getAllBooks();
 
