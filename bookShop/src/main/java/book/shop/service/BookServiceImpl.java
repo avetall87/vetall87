@@ -43,6 +43,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getBookByIsbn(int isbn) {
+        System.out.println("isbn = "+isbn);
+        log.info("isbn = "+isbn);
         return bookDao.getBookByIsbn(isbn);
     }
 

@@ -7,7 +7,7 @@
         <param name="maxFileSize" value="100MB"/>
         <param name="maxBackupIndex" value="2"/>
         <param name="Encoding" value="windows-1251"/>
-        <param name="file" value="${catalina.home}/logs/book_shop.log" />
+        <param name="file" value="f:\apache-tomcat-8.0.29\apache-tomcat-8.0.29\logs\book_shop.log" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern"
                    value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />

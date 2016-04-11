@@ -10,7 +10,9 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by виталий on 01.11.2015.
@@ -41,6 +43,12 @@ public class BookDaoImpl implements BookDao {
     }
 
     public List<Book> getAllBooks() {
+        log.info("find all books");
+        String sql = "SELECT * FROM book";
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql, new BooksMapper());
+
+        maps.size();
+
         return null;
     }
 
@@ -49,6 +57,19 @@ public class BookDaoImpl implements BookDao {
         public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
             Book book = new Book(rs.getInt("isbn"),rs.getInt("author_id"),rs.getString("name"));
             return book;
+        }
+    }
+
+    private static class BooksMapper implements RowMapper<List<Book>> {
+
+        @Override
+        public List<Book> mapRow(ResultSet resultSet, int i) throws SQLException {
+            List<Book> books = new ArrayList<>();
+
+            while(resultSet.next()){
+                books.add(new Book(resultSet.getInt("isbn") ,resultSet.getInt("author_id"),resultSet.getString("name")));
+            }
+            return books;
         }
     }
 }
